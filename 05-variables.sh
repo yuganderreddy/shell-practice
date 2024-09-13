@@ -4,4 +4,4 @@ echo "please enter your username::"
 
 read USERNAME
 
-echo "Entered username is:: $username"
+echo "Entered username is:: $USERNAME"
