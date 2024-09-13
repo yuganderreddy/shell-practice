@@ -2,6 +2,5 @@
 
 echo "please enter your username::"
 
-read USERNAME
-
+read -s USERNAME #interrupts us and takes input into this USERNAME variable & we can use it anywhere.
 echo "Entered username is:: $USERNAME"
