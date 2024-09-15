@@ -22,36 +22,23 @@ fi
 
 dnf list installed git -y
 
-VALIDATE $? "listing git is success"
 
-#  if [ $? -ne 0 ]
-# then
-#     echo "git is not installed, it is going to install....."
-#     dnf install git -y
-#     if [ $? -ne 0 ]
-#     then
-#         echo "git installation is not successfull, please check it...."
-#         exit 1
-#     else
-#         echo "git installation is successfull...."
-#     fi
-# else 
-#     echo "git is already installed...."
-# fi    
+ if [ $? -ne 0 ]
+then
+    echo "git is not installed, it is going to install....."
+    dnf install git -y
+    VALIDATE $? "installing git"
+else 
+    echo "git is already installed...."
+fi    
 
-# #installation of MySql using shell-script.
-# dnf list installed mysql -y
-# if [ $? -ne 0 ]
-# then
-#     echo "mysql is not installed, it is going to install....."
-#     dnf install mysql -y
-#     if [ $? -ne 0 ]
-#     then
-#         echo "mysql installation is not successfull, please check it...."
-#         exit 1
-#     else
-#         echo "mysql installation is successfull...."
-#     fi
-# else 
-#     echo "mysql is already installed...."
-# fi    
+#installation of MySql using shell-script.
+dnf list installed mysql -y
+if [ $? -ne 0 ]
+then
+    echo "mysql is not installed, it is going to install....."
+    dnf install mysql -y
+    VALIDATE $? "installing mysql"
+else 
+    echo "mysql is already installed...."
+fi    
