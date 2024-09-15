@@ -4,7 +4,7 @@
 
 USERID=$(id -u)
 
-echo "userid is :$USERID"
+#echo "userid is :$USERID"
 
 if [ $? -ne 0 ]
 then
