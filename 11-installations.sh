@@ -4,9 +4,9 @@
 
 USERID=$(id -u)
 
-#echo "userid is :$USERID"
+echo "userid is :$USERID"
 
-if [ $? -ne 0 ]
+if [ $USERID -ne 0 ]
 then
     echo "Please run the script with Root privileges..."
 fi
