@@ -14,33 +14,33 @@ fi
 
 dnf list installed git -y
  if [ $? -ne 0 ]
-    then
+then
     echo "git is not installed, it is going to install....."
     dnf install git -y
     if [ $? -ne 0 ]
-        then
+    then
         echo "git installation is not successfull, please check it...."
         exit 1
-        else
+    else
         echo "git installation is successfull...."
     fi
-    else 
+else 
     echo "git is already installed...."
 fi    
 
 #installation of MySql using shell-script.
 dnf list installed mysql -y
- if [ $? -ne 0 ]
-    then
+if [ $? -ne 0 ]
+then
     echo "mysql is not installed, it is going to install....."
     dnf install mysql -y
     if [ $? -ne 0 ]
-        then
+    then
         echo "mysql installation is not successfull, please check it...."
         exit 1
-        else
+    else
         echo "mysql installation is successfull...."
     fi
-    else 
+else 
     echo "mysql is already installed...."
 fi    
