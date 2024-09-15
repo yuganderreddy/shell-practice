@@ -4,7 +4,7 @@
 
 USERID=$(id -u)
 
-echo "userid is :$USERID"
+#echo "userid is :$USERID"
 
 if [ $USERID -ne 0 ]
 then
@@ -12,7 +12,7 @@ then
     exit 1
 fi
 
-dnf list installed git -y
+dnf list installed gittt -y
  if [ $? -ne 0 ]
     then
     echo "git is not installed, it is going to install....."
