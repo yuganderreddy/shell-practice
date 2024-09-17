@@ -51,7 +51,7 @@ fi
 # sh 15-loops.sh git mysql postfix nginx
 for package in $@   #$@ refers to all the variables/args passed to it.
 do
-    dnf list installed $package
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
         echo "$package is not installed, going to install it..." &>>$LOG_FILE
