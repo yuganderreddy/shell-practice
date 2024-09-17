@@ -20,10 +20,10 @@ CHECK_ROOT() {
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$R $2 is not installed successfully $N"
+        echo -e "$R $2 is not installed successfully $N"
         exit 1
     else
-        echo "$G $2 is installed successfully $N" 
+        echo -e "$G $2 is installed successfully $N" 
     fi
 
 }
