@@ -38,7 +38,7 @@ USAGE() {
     exit 1
 }
 
-echo "$G Script started executing at: $(date)  $N" | tee -a $LOG_FILE
+echo -e "$G Script started executing at: $(date)  $N" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
