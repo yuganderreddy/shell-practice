@@ -22,4 +22,5 @@ echo "FILES :$FILES"
 while IFS= read -r line #IFS= Internal Field Seperator here IFS is empty it means it will not ignore white spaces, -r =not to ignore special characters like /
 do
     echo "deleting line : $line"
+    rm -rf $line   #here deleting one by one file with looping. Actually we can delete this at -name cmd only by using (-exec rm -rf).
 done <<<$FILES
