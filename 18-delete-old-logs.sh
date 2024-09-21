@@ -9,8 +9,8 @@ SOURCE_DIR=/home/ec2-user/logs
 
 if [ -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR exists"
+    echo -e "$SOURCE_DIR $G exists $N"
 else
-    echo "$SOURCE_DIR not exists"
+    echo -e "$SOURCE_DIR $R not exists $N"
     exit 1
 fi
