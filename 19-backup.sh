@@ -3,6 +3,7 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
 SOURCE_DIR=$1
 DEST_DIR=$2
@@ -23,11 +24,13 @@ fi
 if [ ! -d $SOURCE_DIR ]
 then
     echo "$SOURCE_DIR doesnot exists... please check"
+    exit 1
 fi
 
 if [ ! -d $DEST_DIR ]
 then
     echo "$DEST_DIR doesnot exists... please check"
+    exit 1
 fi
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
@@ -37,6 +40,23 @@ echo "FILES: $FILES"
 if [ ! -z $FILES ]  # '-z' is true if files are empty, '!' makes the expression false.
 then
     echo "Files are found"
+    ZIP_File="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip $ZIP_File -@
+
+    # check if file is successfully zipped or not.
+    if [ -f $ZIP_File ]
+    then
+        echo "Files are successfully zipped that are older than $DAYS days"
+        # remove the files after zipping.
+        while IFS= read -r file     #IFS= Internal Field Seperator here IFS is empty it means it will not ignore white spaces, -r =not  to ignore special characters like /
+        do
+            echo "deleting file : $file"
+            rm -rf $file   #here deleting one by one file with looping. Actually we can delete this at -name cmd only by using (-exec rm -rf).
+        done <<<$FILES
+    else
+        echo "Files are not zipped"
+        exit 1
+    fi
 else
     echo "No files are found older than $DAYS days"
 fi
